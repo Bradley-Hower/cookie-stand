@@ -1,10 +1,18 @@
 `use strict`;
 
 
+let storereportSection = document.getElementById('store_reports');
+
+console.dir(storereportSection);
+
 let hours = ['6am', '7am', '8am','9am','10am','11am','12pm','1pm','2pm','3pm','4pm','5pm','6pm', '7pm'];
 
 
-let Seattle = {
+
+
+
+let Seattle_store = {
+  name: 'Seattle',
   mincust: 23,
   maxcust: 65,
   avgsale: 6.3,
@@ -33,11 +41,52 @@ let Seattle = {
     }
     return hourlysales_tally;
   },
+  
+  render: function (){
+    this.hourlysales();
+    // ** Create Element
+    let articleEle =  document.createElement('article');
 
+    // ** Add to DOM
+    storereportSection.appendChild(articleEle);
+
+    let storereportHeading = document.createElement('h2');
+    articleEle.appendChild(storereportHeading);
+
+    storereportHeading.innerText = this.name;
+
+
+
+    let storepEle = document.createElement('p');
+    storereportHeading.appendChild(storepEle);
+
+    let storeulEle = document.createElement('ul');
+    articleEle.appendChild(storeulEle);
+
+    for (let i = 0; i < hours.length ; i++){
+      if (i < hours.length){
+        let storeliElem = document.createElement('li');
+        storeliElem.innerText = this.hourlysales()[i];
+        storeulEle.appendChild(storeliElem);
+      }
+    }
+
+    let imgEle = document.createElement('img');
+    articleEle.appendChild(imgEle);
+
+  }
 };
 
-console.log(Seattle.randomcust_generator());
-console.log(Seattle.hourlysales());
+
+
+
+Seattle_store.render();
+
+
+// console.log(Seattle);
+
+
+// console.log(Seattle_store.hourlysales());
 
 		
 // Tokyo	3	24	1.2
