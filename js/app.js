@@ -9,25 +9,35 @@ let Seattle = {
   maxcust: 65,
   avgsale: 6.3,
 
-  randomnumgen: function () {
-    return Math.floor(Math.random() * (this.maxcust - this.mincust + 1) + this.mincust); // The maximum is inclusive 
+  randomnumgen: function (min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max- min + 1) + min); // The maximum is inclusive 
   },
 
-  hourlysales: [],
+  randomcust_generator: function () {
+    return this.randomnumgen(this.mincust, this.maxcust);
+  },
+
+
 
   hourlysales_generator: function (){
-    for (i === 0; i < hours.length; i++){
+    let hourlysales = [];
+    for (let i = 0; i < hours.length ; i++){
       if (i < hours.length){
-        this.hourlysales.push(this.randomnumgen * this.avgsale);
+        hourlysales.push(this.randomcust_generator());
       }
       else {
-        break;
+        return hourlysales;
       }
     }
-  }
-}
+    return hourlysales;
+  },
 
-console.log(Seattle.hourlysales);
+};
+
+console.log(Seattle.randomcust_generator());
+console.log(Seattle.hourlysales_generator());
 
 		
 // Tokyo	3	24	1.2
