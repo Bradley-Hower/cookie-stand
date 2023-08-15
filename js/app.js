@@ -21,23 +21,23 @@ let Seattle = {
 
 
 
-  hourlysales_generator: function (){
-    let hourlysales = [];
+  hourlysales: function (){
+    let hourlysales_tally = [];
     for (let i = 0; i < hours.length ; i++){
       if (i < hours.length){
-        hourlysales.push(this.randomcust_generator());
+        hourlysales_tally.push(`${hours[i]}: ${Math.round(this.randomcust_generator() * this.avgsale)} cookies`);
       }
       else {
-        return hourlysales;
+        return hourlysales_tally;
       }
     }
-    return hourlysales;
+    return hourlysales_tally;
   },
 
 };
 
 console.log(Seattle.randomcust_generator());
-console.log(Seattle.hourlysales_generator());
+console.log(Seattle.hourlysales());
 
 		
 // Tokyo	3	24	1.2
