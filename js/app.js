@@ -100,6 +100,8 @@ Cookies.prototype.hourlysales = function (){
   return hourlysales_tally;
 };
 
+
+
 Cookies.prototype.render = function (){
   let hourlydata_pull = this.hourlysales();
 
@@ -117,8 +119,6 @@ Cookies.prototype.render = function (){
   }
 };
 
-
-
 let seattle = new Cookies ('Seattle', 23, 65, 6.3);
 let tokyo = new Cookies ('Tokyo', 3, 24, 1.2);
 let dubai = new Cookies ('Dubai', 11, 38, 3.7);
@@ -127,8 +127,33 @@ let lima = new Cookies ('Lima', 2, 16, 4.6);
 
 cookie_array.push(seattle, tokyo, dubai, paris, lima);
 
+function footer_render(){
+
+  // ** More Elements
+  let storefooterEle = document.createElement('tr');
+  tableEle.appendChild(storefooterEle);
+  let storerowtitleEle = document.createElement('td');
+  tableEle.appendChild(storerowtitleEle);
+  storerowtitleEle.innerText = ('asdf');
+
+
+  for(let i = 0; i < hours.length + 1; i++){
+    if (i< hours.length){
+      let all_loc_hourly_total = document.createElement('td');
+      tableEle.appendChild(all_loc_hourly_total);
+      all_loc_hourly_total.innerText = ':(';
+    } else {
+      let storereportHeading_end = document.createElement('th');
+      tableEle.appendChild(storereportHeading_end);
+      storereportHeading_end.innerText = 'Daily Location Totals';
+    }
+  }
+}
+
 heading_render();
 render_all();
+footer_render();
+
 
 
 
