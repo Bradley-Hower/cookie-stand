@@ -3,7 +3,7 @@
 
 let storereportSection = document.getElementById('store_reports');
 
-console.dir(storereportSection);
+// console.dir(storereportSection);
 
 let hours = ['6am', '7am', '8am','9am','10am','11am','12pm','1pm','2pm','3pm','4pm','5pm','6pm', '7pm'];
 
@@ -67,10 +67,11 @@ let Seattle_store = {
     let storeulEle = document.createElement('ul');
     articleEle.appendChild(storeulEle);
 
+    let salesarray = this.hourlysales();
     for (let i = 0; i < hours.length + 1 ; i++){
       if (i < hours.length + 1){
         let storeliElem = document.createElement('li');
-        storeliElem.innerText = this.hourlysales()[i];
+        storeliElem.innerText = salesarray[i];
         storeulEle.appendChild(storeliElem);
       }
     }
@@ -86,14 +87,14 @@ let Tokyo_store = {
   mincust: 3,
   maxcust: 24,
   avgsale: 1.2,
+
   randomnumgen: function (min, max) {
-    min = Math.ceil(min);
-    max = Math.floor(max);
     return Math.floor(Math.random() * (max- min + 1) + min); // The maximum is inclusive 
   },
 
   randomcust_generator: function () {
-    return this.randomnumgen(this.mincust, this.maxcust);
+    let randnumber = this.randomnumgen(this.mincust, this.maxcust);
+    return randnumber;
   },
 
 
@@ -104,8 +105,10 @@ let Tokyo_store = {
     let data_insert = 0;
     for (let i = 0; i < hours.length + 1; i++){
       if (i < hours.length){
-        data_insert = Math.round(this.randomcust_generator() * this.avgsale);
+        data_insert = (Math.round(this.randomcust_generator()));
+        console.log(data_insert);
         totalsales += data_insert;
+        console.log(totalsales);
         hourlysales_tally.push(`${hours[i]}: ${data_insert} cookies`);
       } else {
         hourlysales_tally.push(`Total Sales: ${totalsales}`);
@@ -136,10 +139,12 @@ let Tokyo_store = {
     let storeulEle = document.createElement('ul');
     articleEle.appendChild(storeulEle);
 
+    let salesarray = this.hourlysales();
+    console.log(salesarray);
     for (let i = 0; i < hours.length + 1 ; i++){
       if (i < hours.length + 1){
         let storeliElem = document.createElement('li');
-        storeliElem.innerText = this.hourlysales()[i];
+        storeliElem.innerText = salesarray[i];
         storeulEle.appendChild(storeliElem);
       }
     }
@@ -206,10 +211,11 @@ let Dubai_store = {
     let storeulEle = document.createElement('ul');
     articleEle.appendChild(storeulEle);
 
+    let salesarray = this.hourlysales();
     for (let i = 0; i < hours.length + 1 ; i++){
       if (i < hours.length + 1){
         let storeliElem = document.createElement('li');
-        storeliElem.innerText = this.hourlysales()[i];
+        storeliElem.innerText = salesarray[i];
         storeulEle.appendChild(storeliElem);
       }
     }
@@ -276,10 +282,11 @@ let Paris_store = {
     let storeulEle = document.createElement('ul');
     articleEle.appendChild(storeulEle);
 
+    let salesarray = this.hourlysales();
     for (let i = 0; i < hours.length + 1 ; i++){
       if (i < hours.length + 1){
         let storeliElem = document.createElement('li');
-        storeliElem.innerText = this.hourlysales()[i];
+        storeliElem.innerText = salesarray[i];
         storeulEle.appendChild(storeliElem);
       }
     }
@@ -346,10 +353,11 @@ let Lima_store = {
     let storeulEle = document.createElement('ul');
     articleEle.appendChild(storeulEle);
 
+    let salesarray = this.hourlysales();
     for (let i = 0; i < hours.length + 1 ; i++){
       if (i < hours.length + 1){
         let storeliElem = document.createElement('li');
-        storeliElem.innerText = this.hourlysales()[i];
+        storeliElem.innerText = salesarray[i];
         storeulEle.appendChild(storeliElem);
       }
     }
