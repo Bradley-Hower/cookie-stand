@@ -31,16 +31,20 @@ let Seattle_store = {
 
   hourlysales: function (){
     let hourlysales_tally = [];
-    for (let i = 0; i < hours.length ; i++){
+    let totalsales = 0;
+    let data_insert = 0;
+    for (let i = 0; i < hours.length + 1; i++){
       if (i < hours.length){
-        hourlysales_tally.push(`${hours[i]}: ${Math.round(this.randomcust_generator() * this.avgsale)} cookies`);
-      }
-      else {
-        return hourlysales_tally;
+        data_insert = Math.round(this.randomcust_generator() * this.avgsale);
+        hourlysales_tally.push(`${hours[i]}: ${data_insert} cookies`);
+        totalsales += data_insert;
+      } else {
+        hourlysales_tally.push(`Total Sales: ${totalsales}`);
       }
     }
     return hourlysales_tally;
   },
+
 
   render: function (){
     this.hourlysales();
@@ -63,8 +67,8 @@ let Seattle_store = {
     let storeulEle = document.createElement('ul');
     articleEle.appendChild(storeulEle);
 
-    for (let i = 0; i < hours.length ; i++){
-      if (i < hours.length){
+    for (let i = 0; i < hours.length + 1 ; i++){
+      if (i < hours.length + 1){
         let storeliElem = document.createElement('li');
         storeliElem.innerText = this.hourlysales()[i];
         storeulEle.appendChild(storeliElem);
@@ -82,7 +86,6 @@ let Tokyo_store = {
   mincust: 3,
   maxcust: 24,
   avgsale: 1.2,
-
   randomnumgen: function (min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
@@ -97,16 +100,20 @@ let Tokyo_store = {
 
   hourlysales: function (){
     let hourlysales_tally = [];
-    for (let i = 0; i < hours.length ; i++){
+    let totalsales = 0;
+    let data_insert = 0;
+    for (let i = 0; i < hours.length + 1; i++){
       if (i < hours.length){
-        hourlysales_tally.push(`${hours[i]}: ${Math.round(this.randomcust_generator() * this.avgsale)} cookies`);
-      }
-      else {
-        return hourlysales_tally;
+        data_insert = Math.round(this.randomcust_generator() * this.avgsale);
+        totalsales += data_insert;
+        hourlysales_tally.push(`${hours[i]}: ${data_insert} cookies`);
+      } else {
+        hourlysales_tally.push(`Total Sales: ${totalsales}`);
       }
     }
     return hourlysales_tally;
   },
+
 
   render: function (){
     this.hourlysales();
@@ -129,8 +136,8 @@ let Tokyo_store = {
     let storeulEle = document.createElement('ul');
     articleEle.appendChild(storeulEle);
 
-    for (let i = 0; i < hours.length ; i++){
-      if (i < hours.length){
+    for (let i = 0; i < hours.length + 1 ; i++){
+      if (i < hours.length + 1){
         let storeliElem = document.createElement('li');
         storeliElem.innerText = this.hourlysales()[i];
         storeulEle.appendChild(storeliElem);
@@ -163,16 +170,20 @@ let Dubai_store = {
 
   hourlysales: function (){
     let hourlysales_tally = [];
-    for (let i = 0; i < hours.length ; i++){
+    let totalsales = 0;
+    let data_insert = 0;
+    for (let i = 0; i < hours.length + 1; i++){
       if (i < hours.length){
-        hourlysales_tally.push(`${hours[i]}: ${Math.round(this.randomcust_generator() * this.avgsale)} cookies`);
-      }
-      else {
-        return hourlysales_tally;
+        data_insert = Math.round(this.randomcust_generator() * this.avgsale);
+        totalsales += data_insert;
+        hourlysales_tally.push(`${hours[i]}: ${data_insert} cookies`);
+      } else {
+        hourlysales_tally.push(`Total Sales: ${totalsales}`);
       }
     }
     return hourlysales_tally;
   },
+
 
   render: function (){
     this.hourlysales();
@@ -195,8 +206,8 @@ let Dubai_store = {
     let storeulEle = document.createElement('ul');
     articleEle.appendChild(storeulEle);
 
-    for (let i = 0; i < hours.length ; i++){
-      if (i < hours.length){
+    for (let i = 0; i < hours.length + 1 ; i++){
+      if (i < hours.length + 1){
         let storeliElem = document.createElement('li');
         storeliElem.innerText = this.hourlysales()[i];
         storeulEle.appendChild(storeliElem);
@@ -229,16 +240,20 @@ let Paris_store = {
 
   hourlysales: function (){
     let hourlysales_tally = [];
-    for (let i = 0; i < hours.length ; i++){
+    let totalsales = 0;
+    let data_insert = 0;
+    for (let i = 0; i < hours.length + 1; i++){
       if (i < hours.length){
-        hourlysales_tally.push(`${hours[i]}: ${Math.round(this.randomcust_generator() * this.avgsale)} cookies`);
-      }
-      else {
-        return hourlysales_tally;
+        data_insert = Math.round(this.randomcust_generator() * this.avgsale);
+        totalsales += data_insert;
+        hourlysales_tally.push(`${hours[i]}: ${data_insert} cookies`);
+      } else {
+        hourlysales_tally.push(`Total Sales: ${totalsales}`);
       }
     }
     return hourlysales_tally;
   },
+
 
   render: function (){
     this.hourlysales();
@@ -261,8 +276,8 @@ let Paris_store = {
     let storeulEle = document.createElement('ul');
     articleEle.appendChild(storeulEle);
 
-    for (let i = 0; i < hours.length ; i++){
-      if (i < hours.length){
+    for (let i = 0; i < hours.length + 1 ; i++){
+      if (i < hours.length + 1){
         let storeliElem = document.createElement('li');
         storeliElem.innerText = this.hourlysales()[i];
         storeulEle.appendChild(storeliElem);
@@ -295,16 +310,20 @@ let Lima_store = {
 
   hourlysales: function (){
     let hourlysales_tally = [];
-    for (let i = 0; i < hours.length ; i++){
+    let totalsales = 0;
+    let data_insert = 0;
+    for (let i = 0; i < hours.length + 1; i++){
       if (i < hours.length){
-        hourlysales_tally.push(`${hours[i]}: ${Math.round(this.randomcust_generator() * this.avgsale)} cookies`);
-      }
-      else {
-        return hourlysales_tally;
+        data_insert = Math.round(this.randomcust_generator() * this.avgsale);
+        totalsales += data_insert;
+        hourlysales_tally.push(`${hours[i]}: ${data_insert} cookies`);
+      } else {
+        hourlysales_tally.push(`Total Sales: ${totalsales}`);
       }
     }
     return hourlysales_tally;
   },
+
 
   render: function (){
     this.hourlysales();
@@ -327,8 +346,8 @@ let Lima_store = {
     let storeulEle = document.createElement('ul');
     articleEle.appendChild(storeulEle);
 
-    for (let i = 0; i < hours.length ; i++){
-      if (i < hours.length){
+    for (let i = 0; i < hours.length + 1 ; i++){
+      if (i < hours.length + 1){
         let storeliElem = document.createElement('li');
         storeliElem.innerText = this.hourlysales()[i];
         storeulEle.appendChild(storeliElem);
