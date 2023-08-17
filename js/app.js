@@ -1,39 +1,25 @@
 `use strict`;
 
-//X  constructor
-
-//X  prototypes 
-
-//X  instantiation (via `new`)
-
-//X profile array
-
-//X helper function to pull from array to render (loop)
-
-
-// helper function for header from hours (loop)
-
-// table dom construction
-
-// helper function for hourly totals
-
-
-
 let storereportSection = document.getElementById('store_reports');
 
 // ** Create Table Element
 
 let tableEle =  document.createElement('table');
+let breaktable =  document.createElement('br');
+let tableEle2 =  document.createElement('table');
 
 // ** Add Table to to DOM 
 storereportSection.appendChild(tableEle);
-
+storereportSection.appendChild(breaktable);
+storereportSection.appendChild(tableEle2);
 
 // console.dir(storereportSection);
 
 const hours = ['6am', '7am', '8am','9am','10am','11am','12pm','1pm','2pm','3pm','4pm','5pm','6pm', '7pm'];
 
 const cookie_array = [];
+
+const cookie_data_array = [];
 
 function render_all(){
   for(let i = 0; i < cookie_array.length; i++){
@@ -104,6 +90,7 @@ Cookies.prototype.hourlysales = function (){
 
 Cookies.prototype.render = function (){
   let hourlydata_pull = this.hourlysales();
+  cookie_data_array.push(hourlydata_pull);
 
   // ** Create Element
   let storerowEle = document.createElement('tr');
@@ -117,6 +104,19 @@ Cookies.prototype.render = function (){
     tableEle.appendChild(hourdataEle);
     hourdataEle.innerText = hourlydata_pull[i];
   }
+
+  let storerowEle2 = document.createElement('tr');
+  tableEle2.appendChild(storerowEle2);
+  let storerowtitleEle2 = document.createElement('td');
+  tableEle2.appendChild(storerowtitleEle2);
+  storerowtitleEle2.innerText = (this.name);
+
+
+  for(let i = 0; i < hourlydata_pull.length - 1; i++){
+    let hourdataEle = document.createElement('td');
+    tableEle2.appendChild(hourdataEle);
+    hourdataEle.innerText = Math.max(2, Math.round(hourlydata_pull[i]/20)) + (' staff');
+  }
 };
 
 let seattle = new Cookies ('Seattle', 23, 65, 6.3);
@@ -127,25 +127,31 @@ let lima = new Cookies ('Lima', 2, 16, 4.6);
 
 cookie_array.push(seattle, tokyo, dubai, paris, lima);
 
-function footer_render(){
 
+
+function footer_render(){
+  console.log(cookie_data_array);
   // ** More Elements
   let storefooterEle = document.createElement('tr');
   tableEle.appendChild(storefooterEle);
   let storerowtitleEle = document.createElement('td');
   tableEle.appendChild(storerowtitleEle);
-  storerowtitleEle.innerText = ('asdf');
-
-
+  storerowtitleEle.innerText = ('Totals');
+  
   for(let i = 0; i < hours.length + 1; i++){
-    if (i< hours.length){
+    if (i< hours.length +1){
+      let columntotal = 0;
+
       let all_loc_hourly_total = document.createElement('td');
       tableEle.appendChild(all_loc_hourly_total);
-      all_loc_hourly_total.innerText = ':(';
-    } else {
-      let storereportHeading_end = document.createElement('th');
-      tableEle.appendChild(storereportHeading_end);
-      storereportHeading_end.innerText = 'Daily Location Totals';
+      for(let a = 0; a < cookie_data_array.length; a++){
+        if (a < cookie_data_array.length){
+          columntotal += Number(cookie_data_array[a][i]);
+          all_loc_hourly_total.innerText = columntotal;
+        } else {
+          break;
+        }
+      }
     }
   }
 }
