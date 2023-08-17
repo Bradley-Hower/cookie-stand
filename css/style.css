@@ -5,6 +5,18 @@ main {
   color: rgb(70, 0, 75);
 }
 
-h {
-  
+table {
+  border-collapse: collapse;
+
+}
+
+th, td {
+  width: 80px;
+  text-align: left;
+  border: 1px solid black;
+  padding: 5px;
+}
+
+th {
+  height: 80px;
 }
