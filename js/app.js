@@ -139,22 +139,16 @@ function footer_render(){
   storerowtitleEle.innerText = ('Totals');
   
   for(let i = 0; i < hours.length + 1; i++){
-    if (i< hours.length +1){
-      let columntotal = 0;
-
-      let all_loc_hourly_total = document.createElement('td');
-      tableEle.appendChild(all_loc_hourly_total);
-      for(let a = 0; a < cookie_data_array.length; a++){
-        if (a < cookie_data_array.length){
-          columntotal += Number(cookie_data_array[a][i]);
-          all_loc_hourly_total.innerText = columntotal;
-        } else {
-          break;
-        }
-      }
+    let columntotal = 0;
+    let all_loc_hourly_total = document.createElement('td');
+    tableEle.appendChild(all_loc_hourly_total);
+    for(let a = 0; a < cookie_data_array.length; a++){
+      columntotal += Number(cookie_data_array[a][i]);
+      all_loc_hourly_total.innerText = columntotal;
     }
   }
 }
+
 
 heading_render();
 render_all();
