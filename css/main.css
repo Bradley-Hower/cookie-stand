@@ -1,0 +1,139 @@
+body  {
+  display: flex;
+  flex-direction: column;
+  align-items:center;
+  background-color: salmon;
+  color: rgb(16, 94, 38);
+  color: rgb(11, 11, 69);
+  color: rgb(70, 0, 75);
+}
+
+header {
+  width: 100%;
+  background-color: #474747;
+  display: flex;
+  justify-content: center;
+}
+
+nav {
+  width: 960px;
+  display: flex;
+  justify-content: space-between;
+}
+
+header p {
+  margin: 15px 0;
+}
+
+.navitem {
+  width: 153px;
+  height: 70px;
+  background-color: #949494;
+  margin: 15px 0;
+  text-align: center;
+  line-height: 70px;
+}
+
+main{
+  display: flex;
+  flex-direction: column;
+  align-items:center;
+  margin-top: 30px;
+}
+
+.image {
+  width: auto;
+  display: flex;
+  flex-direction: row;
+  justify-self: center;
+  justify-content: space-between;
+}
+
+section {
+  width: 960px;
+  display: flex;
+  flex-direction: row;
+  justify-self: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin: 30px 0;
+}
+
+section p{
+  background-color: #949494;
+  width: 240px;
+  height: 315px;
+  text-align: center;
+  margin: 15px 0;
+  padding: 30px;
+  line-height: 25px;
+}
+
+.merch {
+  height: 400px;
+  display: flex;
+  flex-direction: row;
+  justify-self: center;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  overflow: scroll;
+}
+
+figure {
+  width: 480px; 
+  display: flex;
+  flex-direction: column;
+  align-items:center;
+}
+
+figure img {
+  margin: auto;
+}
+
+article {
+  width: 400px; 
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-items: left;
+  margin-left: 30px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-style: italic;
+}
+
+h2 {
+  font-size: 10px;
+  font-weight: bold;
+}
+
+h3 {
+  font-size: 22px;
+  font-style: normal;
+}
+
+figcaption {
+  color: white;
+  overflow: scroll;
+  margin-bottom: 30px;
+  line-height: 20px;
+}
+
+button {
+  height: 60px;
+  width: 180px;
+  color: white;
+  font-weight: bold;
+  background-color: rgb(70, 0, 75);
+}
+
+button:hover {
+  background-color: rgb(255, 255, 255);
+  color: black;
+  transition-delay: .35s;
+}
+
+footer {
+  height: 125px;
+  width: 100%;
+  background-color: #474747;
+}
