@@ -5,6 +5,7 @@ let storereportSection = document.getElementById('store_reports');
 // ** Create Table Element
 
 let tableEle =  document.createElement('table');
+tableEle.setAttribute('id', 'store_reports_table');
 let breaktable =  document.createElement('br');
 let tableEle2 =  document.createElement('table');
 
@@ -27,6 +28,14 @@ function render_all(){
   }
 }
 
+//** Table Row Remover */
+function handleRowremoval(){
+  console.log(cookie_array.length);
+  document.getElementById('store_reports_table').deleteRow(cookie_array.length);
+
+}
+
+
 //** Element tracking mount */
 let storetobeSubmitted = document.getElementById('store-submit');
 
@@ -38,19 +47,22 @@ function handleSubmit(event){
   console.log('event: ', event);
   console.log(typeof event.target.name.value);
   let storename = event.target.storename.value;
-  let storemincust = event.target.storemincust.value;
-  let storemaxcust = event.target.storemaxcust.value;
-  let storeavgsale = event.target.storeavgsale.value;
+  let storemincust = Number(event.target.storemincust.value);
+  let storemaxcust = Number(event.target.storemaxcust.value);
+  let storeavgsale = Number(event.target.storeavgsale.value);
 
   let newstore = new Cookies(storename, storemincust, storemaxcust, storeavgsale);
 
+  handleRowremoval();
   cookie_array.push(newstore);
   newstore.render();
+  footer_render();
+
 }
 
-
-
+// storereportSection.addEventListener('submit', handleRowremoval);
 storetobeSubmitted.addEventListener('submit', handleSubmit);
+
 
 //** Heading Render */
 
@@ -178,5 +190,7 @@ function footer_render(){
 heading_render();
 render_all();
 footer_render();
+
+
 
 
