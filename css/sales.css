@@ -20,3 +20,8 @@ th, td {
 th {
   height: 80px;
 }
+
+input[type=text] {
+  color: red;
+  width: 150px;
+}
