@@ -30,8 +30,8 @@ function render_all(){
 
 //** Table Row Remover */
 function handleRowremoval(){
+  console.log(cookie_array.length);
   document.getElementById('store_reports_table').deleteRow(cookie_array.length);
-
 }
 
 
@@ -51,9 +51,9 @@ function handleSubmit(event){
   let newstore = new Cookies(storename, storemincust, storemaxcust, storeavgsale);
 
   handleRowremoval();
-  // cookie_array.push(newstore);
+  cookie_array.push(newstore);
   newstore.render();
-  // footer_render();
+  footer_render();
 
 }
 
