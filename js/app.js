@@ -30,7 +30,6 @@ function render_all(){
 
 //** Table Row Remover */
 function handleRowremoval(){
-  console.log(cookie_array.length);
   document.getElementById('store_reports_table').deleteRow(cookie_array.length);
 
 }
@@ -44,8 +43,6 @@ let storetobeSubmitted = document.getElementById('store-submit');
 
 function handleSubmit(event){
   event.preventDefault();
-  console.log('event: ', event);
-  console.log(typeof event.target.name.value);
   let storename = event.target.storename.value;
   let storemincust = Number(event.target.storemincust.value);
   let storemaxcust = Number(event.target.storemaxcust.value);
@@ -54,13 +51,12 @@ function handleSubmit(event){
   let newstore = new Cookies(storename, storemincust, storemaxcust, storeavgsale);
 
   handleRowremoval();
-  cookie_array.push(newstore);
+  // cookie_array.push(newstore);
   newstore.render();
-  footer_render();
+  // footer_render();
 
 }
 
-// storereportSection.addEventListener('submit', handleRowremoval);
 storetobeSubmitted.addEventListener('submit', handleSubmit);
 
 
@@ -169,16 +165,16 @@ cookie_array.push(seattle, tokyo, dubai, paris, lima);
 function footer_render(){
   console.log(cookie_data_array);
   // ** More Elements
-  let storefooterEle = document.createElement('tr');
-  tableEle.appendChild(storefooterEle);
-  let storerowtitleEle = document.createElement('td');
+  let storerowtitleEle = document.createElement('tr');
   tableEle.appendChild(storerowtitleEle);
-  storerowtitleEle.innerText = ('Totals');
+  let storecelltitleEle = document.createElement('td');
+  storerowtitleEle.appendChild(storecelltitleEle);
+  storecelltitleEle.innerText = ('Totals');
   
   for(let i = 0; i < hours.length + 1; i++){
     let columntotal = 0;
     let all_loc_hourly_total = document.createElement('td');
-    tableEle.appendChild(all_loc_hourly_total);
+    storerowtitleEle.appendChild(all_loc_hourly_total);
     for(let a = 0; a < cookie_data_array.length; a++){
       columntotal += Number(cookie_data_array[a][i]);
       all_loc_hourly_total.innerText = columntotal;
