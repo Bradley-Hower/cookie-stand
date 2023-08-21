@@ -20,3 +20,10 @@ th, td {
 th {
   height: 80px;
 }
+
+input {
+  color: red;
+  width: 250px;
+  display: block;
+  margin-bottom: 20px;
+}

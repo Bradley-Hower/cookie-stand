@@ -5,13 +5,28 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
 
-  <link href="css/style.css" type="text/css" rel="stylesheet">
+  <link href="css/sales.css" type="text/css" rel="stylesheet">
 </head>
 <body>
   <main>
     <div id="store_reports"></div>
   </main>
   <footer></footer>
+
+  <form id="store-submit">
+    <fieldset> 
+      <legend>New Store Submission</legend>
+        <label for="storename">Store Name: </label>
+        <input type="text" id="storename" name="storename" placeholder="Ex. Seattle">
+        <label for="storemincust">Minimum Customer Number</label>
+        <input type="text" id="storemincust" name="storemincust">
+        <label for="maxcust">Maximum Customer Number: </label>
+        <input type="text" id="storemaxcust" name="storemaxcust">
+        <label for="storeavgsale">Average Purchase Number: </label>
+        <input type="text" id="storeavgsale" name="storeavgsale">
+    </fieldset>
+    <button type="submit">Submit</button>
+  </form>
   <script src="js/app.js"></script>
 </body>
 </html>
