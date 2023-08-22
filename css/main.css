@@ -1,14 +1,16 @@
 body  {
+  font-family:'Times New Roman', Times, serif;
+  font-size: 18px;
   display: flex;
   flex-direction: column;
   align-items:center;
-  background-color: salmon;
-  color: white;
+  background-color: rgb(255, 153, 142);
+  color: rgb(255, 255, 255);
 }
 
 header {
   width: 100%;
-  background-color: #474747;
+  background-color: #ffffff;
   display: flex;
   justify-content: center;
 }
@@ -17,6 +19,12 @@ nav {
   width: 960px;
   display: flex;
   justify-content: space-between;
+}
+
+h1 {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  color: rgb(160, 235, 235);
+  font-size: 60px;
 }
 
 header p {
@@ -58,13 +66,18 @@ section {
 }
 
 section p{
-  background-color: #949494;
+  background-color: #747474;
   width: 240px;
   height: 315px;
   text-align: center;
   margin: 15px 0;
   padding: 30px;
   line-height: 25px;
+}
+
+.hours {
+  font-family: Arial, Helvetica, sans-serif;
+  color: rgb(183, 252, 235);
 }
 
 .merch {
@@ -105,15 +118,15 @@ h2 {
 }
 
 h3 {
-  font-size: 22px;
+  font-size: 30px;
   font-style: normal;
 }
 
 figcaption {
-  color: white;
   overflow: scroll;
   margin-bottom: 30px;
   line-height: 20px;
+  color: black;
 }
 
 button {
